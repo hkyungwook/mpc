@@ -1,0 +1,249 @@
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%
+% macros.tex
+%
+
+\newcounter{mytable}
+\def\mytable{\begin{centering}\refstepcounter{mytable}}
+\def\endmytable{\end{centering}}
+
+\def\mytablecaption#1{\vspace{2mm}
+                      \centerline{Table \arabic{mytable}.~{#1}}
+                      \vspace{6mm}
+ \addcontentsline{lot}{table}{\protect\numberline{\arabic{mytable}}~{#1}}}
+
+
+%--
+% Theorems are environments with numbering schemes. Based on Goldreich's defs.
+%--
+
+\ifdefined \qed \relax \else
+\newcommand{\qed}{\hspace*{\fill}\rule{7pt}{7pt}}
+\fi%
+
+\ifdefined \theorem \relax \else
+\newtheorem{theorem}{Theorem}
+\newtheorem{definition}{Definition}
+\newtheorem{corollary}[theorem]{Corollary}
+\newtheorem{example}{Example}
+\newtheorem{lemma}[theorem]{Lemma}  % A counter for Lemmas etc
+\newtheorem{proposition}[theorem]{Proposition}
+\newtheorem{claim}[theorem]{Claim}
+
+\newtheorem{conjecture}[theorem]{Conjecture}
+%\newenvironment{proof}{\noindent{\bf Proof:~~}}{\qed\quad}
+\newenvironment{proof_sketch}{\quad\par\noindent{\bf Sketch of proof:~~}}{\qed\quad}
+
+\fi
+
+
+\newtheorem{observation}[theorem]{Observation}
+\newtheorem{fact}[theorem]{Fact}
+
+\newcommand{\BT}{\begin{theorem}}
+\newcommand{\ET}{\end{theorem}}
+%---
+
+%---
+
+\newcommand{\BD}{\begin{definition}}
+\newcommand{\ED}{\end{definition}}
+%---
+
+\newcommand{\BCR}{\begin{corollary}}
+\newcommand{\ECR}{\end{corollary}}
+%---
+
+\newcommand{\BEX}{\begin{example}}
+\newcommand{\EEX}{\end{example}}
+%---
+
+\newcommand{\BL}{\begin{lemma}}
+\newcommand{\EL}{\end{lemma}}
+%---
+
+\newcommand{\BP}{\begin{proposition}}
+\newcommand{\EP}{\end{proposition}}
+%---
+
+\newcommand{\BCM}{\begin{claim}}
+\newcommand{\ECM}{\end{claim}}
+%---
+
+\newcommand{\BF}{\begin{fact}}
+\newcommand{\EF}{\end{fact}}
+%---
+\newcommand{\BPF}{\begin{proof}}
+\newcommand{\EPF}{\end{proof}}
+%---
+\newcommand{\BEN}{\begin{enumerate}}
+\newcommand{\EEN}{\end{enumerate}}
+\newcommand{\BI}{\begin{itemize}}
+\newcommand{\EI}{\end{itemize}}
+
+\newcommand{\BO}{\begin{observation}}
+\newcommand{\EO}{\end{observation}}
+
+\newcommand{\BDS}{\begin{description}}
+\newcommand{\EDS}{\end{description}}
+%
+% Definitions:
+%
+\def\S{\textbf{S}}
+\def\C{\textbf{C}}
+\def\P{\textbf{P}}
+\def\AA{{\mathbb A}}       %affine space
+\def\CC{{\mathbb C}}       %complex numbers
+\def\EE{{\mathbb E}}       %expected value
+\def\FF{{\mathbb F}}       %field
+\def\GG{{\mathbb G}}       %group
+\def\HH{{\mathbb H}}       %
+\def\II{{\mathbb I}}       %total influence
+\def\NN{{\mathbb N}}       %natural numbers
+\def\PP{{\mathbb P}}       %projective space
+\def\QQ{{\mathbb Q}}       %rational numbers
+\def\RR{{\mathbb R}}       %real numbers
+\def\VV{{\mathbb V}}       %projective variety
+\def\XX{{\mathbb X}}       %
+\def\ZZ{{\mathbb Z}}       %integers
+\def\AAA{{\mathcal A}}     %adversary, attacker
+\def\BBB{{\mathcal B}}     %another adversary, attacker
+\def\CCC{{\mathcal C}}     %ciphertext-space
+\def\DDD{{\mathcal D}}     %decryption algorithm
+\def\EEE{{\mathcal E}}     %encryption algorithm
+\def\FFF{{\mathcal F}}     %
+\def\GGG{{\mathcal G}}     %problem generating algorithm
+\def\HHH{{\mathcal H}}     %hypotehsis class
+\def\III{{\mathcal I}}     %hypotehsis class
+\def\JJJ{{\mathcal J}}     %escrow key-generation algorithm
+\def\KKK{{\mathcal K}}     %key-generation algorithm
+\def\LLL{{\mathcal L}}     %
+\def\MMM{{\mathcal M}}     %message-space
+\def\PPP{{\mathcal P}}     %
+\def\RRR{{\mathcal R}}     %recover algorithm
+\def\SSS{{\mathcal S}}     %signature algorithm
+\def\TTT{{\mathcal T}}     %
+\def\VVV{{\mathcal V}}     %verification algorithm
+\def\XXX{{\mathcal X}}     %
+\def\YYY{{\mathcal Y}}     %
+\def\ZZZ{{\mathcal Z}}     %
+
+\def\through{{,\dotsc,}}
+\def\bitset{{\{0,1\}}}    %bit set
+\def\zeroone{{\{0,1\}}}    %bit set
+\def\zo{{\{0,1\}}}    %bit set
+\def\oo{{\{+1,-1\}}}    %bit set
+\def\oton{{\{1,\ldots,n\}}} %the set 1 through n
+\def\to{{\rightarrow}}
+\def\from{{\leftarrow}}
+\def\xor{{\oplus}}         %+ mod 2
+\def\Xor{{\bigoplus}}
+\def\poly{\mathop{\rm{poly}}\nolimits}
+\def\polylog{\mathop{\rm{polylog}}\nolimits}
+\def\size{{\mathrm{size}}}
+\def\sign{{\mathrm{sign}}}
+\def\bra{{\langle}}        %
+\def\ket{{\rangle}}        %
+\def\eps{{\epsilon}}        %
+\def\E{\mathop{\mathbb{E}}\displaylimits}   %expected value
+\def\Var{\mathop{\mathrm{Var}}\displaylimits}   %variance
+\def\rnd{\in_R}
+\def\accept{{\emph{\texttt{accept}}}}
+\def\reject{{\emph{\texttt{reject}}}}
+\def\yes{{\textsc{yes}}}
+\def\no{{\textsc{no}}}
+\def\fail{{\textsc{fail}}}
+\def\view{{\textsc{view}}}
+\def\output{{\textsc{output}}}
+\def\ideal{{\textsc{ideal}}}
+\def\real{{\textsc{real}}}
+\def\and{{\wedge}}
+
+%\DeclareMathOperator*{\argmax}{arg\,max}
+%\DeclareMathOperator*{\argmin}{arg\,min}
+
+\newcommand{\Vr}{{\mathrm{Vr}}}
+\newcommand{\eqdef}{\stackrel{\textrm{def}}{=}}
+\newcommand{\compind}{\stackrel{\textrm{c}}{\equiv}}
+\newcommand{\inr}{\in_{\mbox{\tiny R}}}
+\newcommand{\getsr}{\gets_{\mbox{\tiny R}}}
+\newcommand{\st}{\mbox{ s.t. }}
+\newcommand{\ceil}[1]{{\lceil{#1}\rceil}}
+\newcommand{\floor}[1]{{\lfloor{#1}\rfloor}}
+\newcommand{\angles}[1]{\langle #1 \rangle}
+\newcommand{\pair}[2]{\langle #1,#2 \rangle}
+\newcommand{\abs}[1]{\lvert#1\rvert}
+\newcommand{\Abs}[1]{\left\lvert#1\right\rvert}
+\newcommand{\norm}[1]{\lVert#1\rVert}
+\newcommand{\Norm}[1]{\left\lVert#1\right\rVert}
+\newcommand{\paren}[1]{(#1 )}
+\newcommand{\Paren}[1]{\left(#1 \right )}
+\newcommand{\brac}[1]{[#1 ]}
+\newcommand{\Brac}[1]{\left[#1 \right]}
+\newcommand{\inv}{^{-1}}
+\newcommand{\fcoef}{{\hat{f}}}     %Fourier coefficient of f
+\newcommand{\gcoef}{{\hat{g}}}     %Fourier coefficient of g
+\newcommand{\hcoef}{{\hat{h}}}     %Fourier coefficient of h
+\newcommand{\fhat}{{\hat{f}}}     %Fourier coefficient of f
+\newcommand{\ghat}{{\hat{g}}}     %Fourier coefficient of g
+\newcommand{\hhat}{{\hat{h}}}     %Fourier coefficient of h
+
+\newcommand{\<}{{\langle}}        %
+\renewcommand{\>}{{\rangle}}
+\newcommand{\comment}[1]{}
+
+\newcommand{\Gen}{{\sf Gen}}
+\newcommand{\Sig}{{\sf Sig}}
+\newcommand{\Ver}{{\sf Ver}}
+
+\newcommand{\bheader}[1]{\medskip \noindent {\bf #1}.}
+\newcommand{\iheader}[1]{\medskip \noindent {\it #1}.}
+
+
+\newcommand{\CMP}{\textsf{CMP} }
+\newcommand{\MUX}{\textsf{MUX} }
+\newcommand{\ELM}{\textsf{ELM} }
+\newcommand{\ADD}{\textsf{ADD} }
+\newcommand{\SUB}{\textsf{SUB} }
+\newcommand{\MUL}{\textsf{MUL} }
+\newcommand{\IN}{\textsf{IN} }
+\newcommand{\DST}{\textsf{DST} }
+\newcommand{\CAP}{\textsf{CAP} }
+\newcommand{\CNT}{\textsf{CNT} }
+\newcommand{\GT}{\textsf{GT} }
+\newcommand{\GE}{\textsf{GE} }
+
+\newcommand{\YAO}{\texttt{YAO}}
+\newcommand{\GMW}{\texttt{GMW}}
+
+\newcommand{\cS}{{\mathbf S}}
+\newcommand{\cR}{{\mathbf R}}
+\newcommand{\bs}{{\mathbf s}}
+\newcommand{\bt}{{\mathbf t}}
+\newcommand{\bp}{{\mathbf p}}
+\newcommand{\bu}{{\mathbf u}}
+\newcommand{\bq}{{\mathbf q}}
+
+
+\newcommand{\protocol}[4]{
+{\begin{figure}[tbp]
+\begin{center}
+\fbox{
+\small
+\hbox{
+\begin{minipage}{.90\columnwidth}
+\begin{center}
+{\bf #1}
+\end{center}
+#4
+\end{minipage}
+}
+}
+%\if\full
+\vspace{-3pt}
+\caption{\label{#3}#2}%\fi
+\end{center}
+\end{figure}
+%\vspace{-10pt}
+} }
